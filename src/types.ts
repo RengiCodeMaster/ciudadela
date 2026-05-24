@@ -1,4 +1,4 @@
-import { z } from 'zod'; // We might use zod if we had it, but standard TS is fine.
+// Standard TS is fine.
 
 export type ScreenState = 
   | 'welcome'
@@ -36,6 +36,8 @@ export interface Room {
     materials: string;
     skills: string;
   };
+  galleryImages: string[];
+  welcomeAudioText: string;
 }
 
 export interface Shift {

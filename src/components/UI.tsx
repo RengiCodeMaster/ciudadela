@@ -3,13 +3,15 @@ import { motion, HTMLMotionProps } from 'motion/react';
 import * as LucideIcons from 'lucide-react';
 
 // --- Icon Helper ---
-interface IconProps extends LucideIcons.LucideProps {
+interface IconProps extends React.ComponentPropsWithoutRef<'svg'> {
   name: string;
+  size?: number | string;
+  className?: string;
 }
-export function Icon({ name, ...props }: IconProps) {
+export function Icon({ name, size, className, ...props }: IconProps) {
   const LucideIcon = (LucideIcons as any)[name];
-  if (!LucideIcon) return <LucideIcons.HelpCircle {...props} />;
-  return <LucideIcon {...props} />;
+  if (!LucideIcon) return <LucideIcons.HelpCircle size={size} className={className} {...props} />;
+  return <LucideIcon size={size} className={className} {...props} />;
 }
 
 // --- Card ---

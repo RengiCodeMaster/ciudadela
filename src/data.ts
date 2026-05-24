@@ -5,7 +5,7 @@ export const ROOMS: Room[] = [
     id: 'mercadito',
     name: 'Sala Mercadito',
     iconName: 'ShoppingBasket',
-    imageUrl: 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&q=80',
+    imageUrl: '/images/mercadito.png',
     shortDescription: 'Práctica de vocabulario de alimentos, precios y pedidos.',
     colors: {
       bg: 'bg-emerald-100',
@@ -17,13 +17,20 @@ export const ROOMS: Room[] = [
       activities: 'Pedir productos, nombrar frutas y verduras, usar frases de cortesía, contar objetos y responder preguntas.',
       materials: 'Canastas, frutas de juguete, billetes didácticos, etiquetas, mesa de atención, tarjetas con palabras.',
       skills: 'Vocabulario, diálogo, pronunciación, escucha activa y expresión oral.'
-    }
+    },
+    galleryImages: [
+      '/images/mercadito_detalle_1.png',
+      '/images/mercadito_detalle_2.png',
+      '/images/mercadito_detalle_3.png',
+      '/images/mercadito_detalle_4.png'
+    ],
+    welcomeAudioText: '¡Hola amiguito! Bienvenido al mercadito. ¡Hoy jugaremos a hacer las compras y ser unos súper vendedores! ¿Me ayudas a elegir las frutas?'
   },
   {
     id: 'veterinaria',
     name: 'Sala Veterinaria',
     iconName: 'Dog',
-    imageUrl: 'https://images.unsplash.com/photo-1537151608804-ea6d1122a5e3?auto=format&fit=crop&w=800&q=80',
+    imageUrl: '/images/veterinaria.png',
     shortDescription: 'Asumir roles, describir síntomas y expresar cuidados.',
     colors: {
       bg: 'bg-sky-100',
@@ -35,13 +42,20 @@ export const ROOMS: Room[] = [
       activities: 'Nombrar partes del cuerpo de los animales, describir síntomas, usar instrumentos médicos de juguete, dar instrucciones claras.',
       materials: 'Peluches de animales, botiquín de juguete, camilla, estetoscopio, vendas, cartillas de salud.',
       skills: 'Expresión emocional, vocabulario específico, seguimiento de instrucciones, roles, articulación.'
-    }
+    },
+    galleryImages: [
+      '/images/veterinaria_detalle_1.png',
+      '/images/veterinaria_detalle_2.png',
+      'https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1516733725897-1aa73b87c8e8?auto=format&fit=crop&w=800&q=80'
+    ],
+    welcomeAudioText: '¡Hola amiguito! Bienvenido a la veterinaria. ¡Hoy jugaremos a cuidar a los animalitos y ser unos excelentes veterinarios! ¿Curamos a un perrito?'
   },
   {
     id: 'restaurante',
     name: 'Sala Restaurante',
     iconName: 'Utensils',
-    imageUrl: 'https://images.unsplash.com/photo-1590845947698-8924d7409b56?auto=format&fit=crop&w=800&q=80',
+    imageUrl: '/images/restaurante.png',
     shortDescription: 'Práctica de pedidos, turnos de conversación y cortesía.',
     colors: {
       bg: 'bg-yellow-100',
@@ -53,13 +67,20 @@ export const ROOMS: Room[] = [
       activities: 'Leer menús con imágenes, pedir comida, alternar turnos para hablar, usar fórmulas de cortesía (por favor, gracias).',
       materials: 'Mesas, sillas, comida de plástico, menús ilustrados, delantales, caja registradora, platos y cubiertos.',
       skills: 'Lenguaje pragmático, turnos comunicativos, modales, interacción social, formulación de preguntas.'
-    }
+    },
+    galleryImages: [
+      '/images/restaurante_detalle_1.png',
+      '/images/restaurante_detalle_2.png',
+      'https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=800&q=80'
+    ],
+    welcomeAudioText: '¡Hola amiguito! Bienvenido al restaurante. ¡Hoy jugaremos a ser grandes cocineros y preparar platos riquísimos! ¡A cocinar!'
   },
   {
     id: 'hogar',
     name: 'Sala Hogar',
     iconName: 'Home',
-    imageUrl: 'https://images.unsplash.com/photo-1558442074-3c19857bc1dc?auto=format&fit=crop&w=800&q=80',
+    imageUrl: '/images/hogar.png',
     shortDescription: 'Vocabulario familiar, rutinas diarias y convivencia.',
     colors: {
       bg: 'bg-pink-100',
@@ -70,14 +91,21 @@ export const ROOMS: Room[] = [
       objective: 'Reforzar el vocabulario del entorno cotidiano y expresar rutinas y emociones.',
       activities: 'Jugar a cocinar, limpiar, dormir a los muñecos, describir partes de la casa, expresar emociones de la vida diaria.',
       materials: 'Cocina de juguete, muñecos, cunas, utensilios de limpieza infantiles, espejos, reloj.',
-      skills: 'Narración de rutinas, vocabulario del hogar, expresión de emociones, secuencias lógicas.'
-    }
+      skills: 'Narración de rutinas, vocabulario del hogar, expression de emociones, secuencias lógicas.'
+    },
+    galleryImages: [
+      '/images/hogar_detalle_1.png',
+      '/images/hogar_detalle_2.png',
+      'https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1515488042361-404e9250afef?auto=format&fit=crop&w=800&q=80'
+    ],
+    welcomeAudioText: '¡Hola amiguito! Bienvenido a la casita. ¡Hoy jugaremos al hogar y a cuidar con mucho amor a nuestra linda familia! ¡Ven, juguemos juntos!'
   },
   {
     id: 'construccion',
     name: 'Sala Construcción',
     iconName: 'Hammer',
-    imageUrl: 'https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&w=800&q=80',
+    imageUrl: '/images/construccion.png',
     shortDescription: 'Describir formas, colores, tamaños y trabajo en equipo.',
     colors: {
       bg: 'bg-orange-100',
@@ -89,7 +117,14 @@ export const ROOMS: Room[] = [
       activities: 'Clasificar piezas por color o forma, pedir herramientas, describir construcciones, planificar en voz alta.',
       materials: 'Bloques de construcción, herramientas de plástico, cascos, conos, carretillas, planos pictóricos.',
       skills: 'Conceptos espaciales, atributos (color/forma/tamaño), proposiciones, negociación.'
-    }
+    },
+    galleryImages: [
+      '/images/construccion_detalle_1.png',
+      '/images/construccion_detalle_2.png',
+      'https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=800&q=80'
+    ],
+    welcomeAudioText: '¡Hola amiguito! Bienvenido a la sala de construcción. ¡Hoy jugaremos a construir edificios gigantes y pistas de trenes asombrosas! ¡A crear!'
   }
 ];
 
