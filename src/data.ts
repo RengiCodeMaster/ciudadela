@@ -5,7 +5,7 @@ export const ROOMS: Room[] = [
     id: 'mercadito',
     name: 'Sala Mercadito',
     iconName: 'ShoppingBasket',
-    imageUrl: '/images/mercadito.png',
+    imageUrl: '/images/mercadito.webp',
     shortDescription: 'Práctica de vocabulario de alimentos, precios y pedidos.',
     colors: {
       bg: 'bg-emerald-100',
@@ -19,10 +19,10 @@ export const ROOMS: Room[] = [
       skills: 'Vocabulario, diálogo, pronunciación, escucha activa y expresión oral.'
     },
     galleryImages: [
-      '/images/mercadito_detalle_1.png',
-      '/images/mercadito_detalle_2.png',
-      '/images/mercadito_detalle_3.png',
-      '/images/mercadito_detalle_4.png'
+      '/images/mercadito_detalle_1.webp',
+      '/images/mercadito_detalle_2.webp',
+      '/images/mercadito_detalle_3.webp',
+      '/images/mercadito_detalle_4.webp'
     ],
     welcomeAudioText: '¡Hola amiguito! Bienvenido al mercadito. ¡Hoy jugaremos a hacer las compras y ser unos súper vendedores! ¿Me ayudas a elegir las frutas?'
   },
@@ -30,7 +30,7 @@ export const ROOMS: Room[] = [
     id: 'veterinaria',
     name: 'Sala Veterinaria',
     iconName: 'Dog',
-    imageUrl: '/images/veterinaria.png',
+    imageUrl: '/images/veterinaria.webp',
     shortDescription: 'Asumir roles, describir síntomas y expresar cuidados.',
     colors: {
       bg: 'bg-sky-100',
@@ -44,8 +44,8 @@ export const ROOMS: Room[] = [
       skills: 'Expresión emocional, vocabulario específico, seguimiento de instrucciones, roles, articulación.'
     },
     galleryImages: [
-      '/images/veterinaria_detalle_1.png',
-      '/images/veterinaria_detalle_2.png',
+      '/images/veterinaria_detalle_1.webp',
+      '/images/veterinaria_detalle_2.webp',
       'https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1516733725897-1aa73b87c8e8?auto=format&fit=crop&w=800&q=80'
     ],
@@ -55,7 +55,7 @@ export const ROOMS: Room[] = [
     id: 'restaurante',
     name: 'Sala Restaurante',
     iconName: 'Utensils',
-    imageUrl: '/images/restaurante.png',
+    imageUrl: '/images/restaurante.webp',
     shortDescription: 'Práctica de pedidos, turnos de conversación y cortesía.',
     colors: {
       bg: 'bg-yellow-100',
@@ -69,8 +69,8 @@ export const ROOMS: Room[] = [
       skills: 'Lenguaje pragmático, turnos comunicativos, modales, interacción social, formulación de preguntas.'
     },
     galleryImages: [
-      '/images/restaurante_detalle_1.png',
-      '/images/restaurante_detalle_2.png',
+      '/images/restaurante_detalle_1.webp',
+      '/images/restaurante_detalle_2.webp',
       'https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=800&q=80'
     ],
@@ -80,7 +80,7 @@ export const ROOMS: Room[] = [
     id: 'hogar',
     name: 'Sala Hogar',
     iconName: 'Home',
-    imageUrl: '/images/hogar.png',
+    imageUrl: '/images/hogar.webp',
     shortDescription: 'Vocabulario familiar, rutinas diarias y convivencia.',
     colors: {
       bg: 'bg-pink-100',
@@ -94,8 +94,8 @@ export const ROOMS: Room[] = [
       skills: 'Narración de rutinas, vocabulario del hogar, expression de emociones, secuencias lógicas.'
     },
     galleryImages: [
-      '/images/hogar_detalle_1.png',
-      '/images/hogar_detalle_2.png',
+      '/images/hogar_detalle_1.webp',
+      '/images/hogar_detalle_2.webp',
       'https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1515488042361-404e9250afef?auto=format&fit=crop&w=800&q=80'
     ],
@@ -105,7 +105,7 @@ export const ROOMS: Room[] = [
     id: 'construccion',
     name: 'Sala Construcción',
     iconName: 'Hammer',
-    imageUrl: '/images/construccion.png',
+    imageUrl: '/images/construccion.webp',
     shortDescription: 'Describir formas, colores, tamaños y trabajo en equipo.',
     colors: {
       bg: 'bg-orange-100',
@@ -119,8 +119,8 @@ export const ROOMS: Room[] = [
       skills: 'Conceptos espaciales, atributos (color/forma/tamaño), proposiciones, negociación.'
     },
     galleryImages: [
-      '/images/construccion_detalle_1.png',
-      '/images/construccion_detalle_2.png',
+      '/images/construccion_detalle_1.webp',
+      '/images/construccion_detalle_2.webp',
       'https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=800&q=80',
       'https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=800&q=80'
     ],

@@ -5,7 +5,7 @@ import { SHIFTS, MAX_CAPACITY_PER_SHIFT, TABLES_PER_ROOM } from '../data';
 import { Button, Card, Icon, PageContainer } from './UI';
 
 // --- Shared Speech Synthesis Helper ---
-const speakText = (text: string, pitch = 1.5, rate = 0.88) => {
+const speakText = (text: string, pitch = 1.30, rate = 0.97) => {
   if ('speechSynthesis' in window) {
     window.speechSynthesis.cancel();
     const utterance = new SpeechSynthesisUtterance(text);

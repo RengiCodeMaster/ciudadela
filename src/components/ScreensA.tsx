@@ -26,7 +26,7 @@ export function WelcomeScreen({ onNavigate }: ScreenProps) {
         transition={{ type: 'spring', bounce: 0.5 }}
         className="w-full max-w-sm rounded-[2.5rem] shadow-xl shadow-sky-100/50 mb-8 overflow-hidden border-4 border-white"
       >
-        <img src="https://images.unsplash.com/photo-1519340333755-56e9c1d04579?auto=format&fit=crop&w=800&q=80" alt="Niños jugando" referrerPolicy="no-referrer" className="w-full h-48 object-cover" />
+        <img src="https://images.unsplash.com/photo-1519340333755-56e9c1d04579?auto=format&fit=crop&w=800&q=80" alt="Niños jugando" referrerPolicy="no-referrer" className="w-full h-48 object-cover" loading="eager" decoding="async" />
       </motion.div>
       <h1 className="text-4xl sm:text-5xl font-bold text-slate-800 mb-4 tracking-tight drop-shadow-sm font-sans">
         Ciudadela de Palabras
@@ -146,7 +146,7 @@ export function RoomSelectionScreen({ onNavigate, setReservation }: ScreenProps)
               className={`flex flex-col h-full border-2 hover:shadow-md transition-all ${room.colors.bg} ${room.colors.border}`}
             >
               <div className="h-32 w-full relative">
-                <img src={room.imageUrl} alt={room.name} referrerPolicy="no-referrer" className="w-full h-full object-cover" />
+                <img src={room.imageUrl} alt={room.name} referrerPolicy="no-referrer" className="w-full h-full object-cover" loading="lazy" decoding="async" />
                  <div className={`absolute inset-0 opacity-20 ${room.colors.bg}`}></div>
               </div>
               <div className="p-5 flex flex-col flex-1">
@@ -213,9 +213,9 @@ export const speakText = (text: string, onStart?: () => void, onEnd?: () => void
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = 'es-ES';
     
-    // Tono más alto y tierno, y velocidad pausada para sonar como un niño dulce y paciente
-    utterance.pitch = 1.55; 
-    utterance.rate = 0.86;  
+    // Tono tierno pero moderado, y velocidad normal/natural pero clara para sonar infantil y comprensible
+    utterance.pitch = 1.30; 
+    utterance.rate = 0.97;  
     
     const voices = window.speechSynthesis.getVoices();
     const spanishVoices = voices.filter(v => v.lang.startsWith('es'));
@@ -395,7 +395,7 @@ export function RoomDetailScreen({ onNavigate, selectedRoomObj }: ScreenProps) {
       <motion.div layoutId={`room-card-${room.id}`}>
         <Card className={`overflow-hidden border-2 shadow-md ${room.colors.border}`}>
           <div className="relative h-56 w-full">
-            <img src={room.imageUrl} alt={room.name} referrerPolicy="no-referrer" className="w-full h-full object-cover" />
+            <img src={room.imageUrl} alt={room.name} referrerPolicy="no-referrer" className="w-full h-full object-cover" decoding="async" />
             <div className={`absolute inset-0 opacity-20 ${room.colors.bg}`}></div>
           </div>
           <div className={`${room.colors.bg} p-5 text-center relative flex justify-center items-center gap-4 border-b-2 ${room.colors.border}`}>
@@ -487,7 +487,7 @@ export function RoomDetailScreen({ onNavigate, selectedRoomObj }: ScreenProps) {
                     className="flex flex-col h-full w-full"
                   >
                     <div className="h-44 w-full relative">
-                      <img src={imgUrl} alt={caption.title} className="w-full h-full object-cover" />
+                      <img src={imgUrl} alt={caption.title} className="w-full h-full object-cover" loading="lazy" decoding="async" />
                       <div className="absolute top-2 right-2 bg-emerald-500 text-white p-1 rounded-full shadow-md">
                         <Icon name="Check" size={16} />
                       </div>
