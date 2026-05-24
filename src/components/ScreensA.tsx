@@ -205,6 +205,64 @@ const GALLERY_CAPTIONS: Record<string, Array<{ title: string; desc: string }>> =
   ]
 };
 
+// --- Shared Speech Synthesis Helper for Natural Children Voices ---
+export const speakText = (text: string, onStart?: () => void, onEnd?: () => void) => {
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'es-ES';
+    
+    // Tono más alto y tierno, y velocidad pausada para sonar como un niño dulce y paciente
+    utterance.pitch = 1.55; 
+    utterance.rate = 0.86;  
+    
+    const voices = window.speechSynthesis.getVoices();
+    const spanishVoices = voices.filter(v => v.lang.startsWith('es'));
+    
+    // Prioridad de voces ultra-naturales e infantiles para iOS, Android y Windows
+    let bestVoice = spanishVoices.find(v => 
+      v.name.toLowerCase().includes('x-ana') || 
+      v.name.toLowerCase().includes('x-ema')
+    ); // Voces neuronales de Google en Android (Ana y Ema)
+    
+    if (!bestVoice) {
+      bestVoice = spanishVoices.find(v => 
+        v.name.includes('Mónica') || 
+        v.name.includes('Monica') || 
+        v.name.includes('Paulina')
+      ); // Voces mejoradas de iOS (Mónica y Paulina)
+    }
+    if (!bestVoice) {
+      bestVoice = spanishVoices.find(v => v.name.toLowerCase().includes('google') && v.lang.includes('es'));
+    }
+    if (!bestVoice) {
+      bestVoice = spanishVoices.find(v => v.name.toLowerCase().includes('sabina')); // Microsoft Sabina (Windows)
+    }
+    if (!bestVoice) {
+      bestVoice = spanishVoices.find(v => v.name.toLowerCase().includes('natural'));
+    }
+    if (!bestVoice) {
+      bestVoice = spanishVoices.find(v => v.name.toLowerCase().includes('female') || v.name.toLowerCase().includes('mujer') || v.name.toLowerCase().includes('zira'));
+    }
+    if (!bestVoice && spanishVoices.length > 0) {
+      bestVoice = spanishVoices[0];
+    }
+
+    if (bestVoice) {
+      utterance.voice = bestVoice;
+    }
+
+    if (onStart) utterance.onstart = onStart;
+    if (onEnd) {
+      utterance.onend = onEnd;
+      utterance.onerror = onEnd;
+    }
+
+    window.speechSynthesis.speak(utterance);
+  }
+};
+
 // 4. Room Detail Screen
 export function RoomDetailScreen({ onNavigate, selectedRoomObj }: ScreenProps) {
   if (!selectedRoomObj) return null;
@@ -213,52 +271,10 @@ export function RoomDetailScreen({ onNavigate, selectedRoomObj }: ScreenProps) {
   const [isSpeaking, setIsSpeaking] = React.useState(false);
   const [revealedCards, setRevealedCards] = React.useState<Record<number, boolean>>({});
 
-  const speakText = (text: string) => {
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-      
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'es-ES';
-      
-      // Ajustamos tono y velocidad para un efecto de voz súper tierno e infantil
-      utterance.pitch = 1.5; // Tono más alto/tierno de niño
-      utterance.rate = 0.88;  // Velocidad ligeramente menor, más paciente y dulce
-      
-      // Buscar la voz en español más dulce y natural disponible
-      const voices = window.speechSynthesis.getVoices();
-      const spanishVoices = voices.filter(v => v.lang.startsWith('es'));
-      
-      // Criterios de dulzura: 1. Google (Chrome) -> 2. Sabina (Windows) -> 3. Femenina -> 4. Cualquiera en español
-      let bestVoice = spanishVoices.find(v => v.name.toLowerCase().includes('google') && v.lang.includes('es'));
-      if (!bestVoice) {
-        bestVoice = spanishVoices.find(v => v.name.toLowerCase().includes('sabina'));
-      }
-      if (!bestVoice) {
-        bestVoice = spanishVoices.find(v => v.name.toLowerCase().includes('female') || v.name.toLowerCase().includes('mujer') || v.name.toLowerCase().includes('zira'));
-      }
-      if (!bestVoice) {
-        bestVoice = spanishVoices.find(v => !v.name.toLowerCase().includes('helena')); // Evitar microsoft helena que es algo seria
-      }
-      if (!bestVoice && spanishVoices.length > 0) {
-        bestVoice = spanishVoices[0];
-      }
-
-      if (bestVoice) {
-        utterance.voice = bestVoice;
-      }
-
-      utterance.onstart = () => setIsSpeaking(true);
-      utterance.onend = () => setIsSpeaking(false);
-      utterance.onerror = () => setIsSpeaking(false);
-
-      window.speechSynthesis.speak(utterance);
-    }
-  };
-
   React.useEffect(() => {
-    // Reproducir casi de forma inmediata al ingresar a la pantalla
+    // Reproducir casi de forma inmediata al ingresar (el contexto ya se desbloqueó en la pantalla anterior)
     const timer = setTimeout(() => {
-      speakText(room.welcomeAudioText);
+      speakText(room.welcomeAudioText, () => setIsSpeaking(true), () => setIsSpeaking(false));
     }, 50);
 
     return () => {
@@ -270,7 +286,7 @@ export function RoomDetailScreen({ onNavigate, selectedRoomObj }: ScreenProps) {
   }, [room.welcomeAudioText]);
 
   const handleMascotClick = () => {
-    speakText(room.welcomeAudioText);
+    speakText(room.welcomeAudioText, () => setIsSpeaking(true), () => setIsSpeaking(false));
   };
 
   const handleReveal = (index: number) => {
