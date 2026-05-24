@@ -34,7 +34,14 @@ export function WelcomeScreen({ onNavigate }: ScreenProps) {
       <p className="text-xl text-slate-600 mb-10 leading-relaxed font-medium">
         Una ludoteca para aprender a comunicarnos jugando.
       </p>
-      <Button variant="primary" onClick={() => onNavigate('registration')} className="w-full sm:w-auto px-12 py-4 text-xl">
+      <Button 
+        variant="primary" 
+        onClick={() => {
+          unlockSpeech();
+          onNavigate('registration');
+        }} 
+        className="w-full sm:w-auto px-12 py-4 text-xl"
+      >
         Iniciar
       </Button>
     </div>
@@ -125,6 +132,7 @@ export function RegistrationScreen({ onNavigate, reservation, setReservation }: 
 // 3. Room Selection Screen
 export function RoomSelectionScreen({ onNavigate, setReservation }: ScreenProps) {
   const handleSelect = (id: string) => {
+    unlockSpeech();
     setReservation(prev => ({ ...prev, roomId: id }));
     onNavigate('room-detail');
   };
@@ -260,6 +268,15 @@ export const speakText = (text: string, onStart?: () => void, onEnd?: () => void
     }
 
     window.speechSynthesis.speak(utterance);
+  }
+};
+
+// Synchronous speech synthesis unlock for mobile devices (iOS/Android)
+export const unlockSpeech = () => {
+  if ('speechSynthesis' in window) {
+    const u = new SpeechSynthesisUtterance(' ');
+    u.volume = 0;
+    window.speechSynthesis.speak(u);
   }
 };
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ScreenProps } from './ScreensA';
+import { ScreenProps, unlockSpeech } from './ScreensA';
 import { SHIFTS, MAX_CAPACITY_PER_SHIFT, TABLES_PER_ROOM } from '../data';
 import { Button, Card, Icon, PageContainer } from './UI';
 
@@ -63,6 +63,7 @@ export function ShiftSelectionScreen({ onNavigate, reservation, setReservation, 
   }, []);
 
   const handleSelectShift = (shiftId: string) => {
+    unlockSpeech();
     setReservation(prev => ({ ...prev, shiftId, date }));
     onNavigate('summary');
   };
@@ -226,6 +227,7 @@ export function SummaryScreen({ onNavigate, reservation, selectedRoomObj }: Scre
   }, [isProcessing]);
 
   const handleConfirm = () => {
+    unlockSpeech();
     setIsProcessing(true);
   };
 
@@ -559,7 +561,14 @@ export function ConfirmationScreen({ onNavigate, reservation, selectedRoomObj }:
       </Card>
 
       <div className="flex gap-3 flex-col w-full">
-        <Button variant="secondary" onClick={() => onNavigate('recommendations')} className="w-full py-4 text-lg">
+        <Button 
+          variant="secondary" 
+          onClick={() => {
+            unlockSpeech();
+            onNavigate('recommendations');
+          }} 
+          className="w-full py-4 text-lg"
+        >
           Ver recomendaciones <Icon name="BookOpen" size={20}/>
         </Button>
         <Button variant="ghost" onClick={() => onNavigate('welcome')} className="w-full text-slate-500 hover:text-slate-700 font-bold">

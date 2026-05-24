@@ -18,6 +18,31 @@ export default function App() {
   const [currentScreen, setCurrentScreen] = useState<ScreenState>('welcome');
   const [reservation, setReservation] = useState<ReservationData>(initialState);
 
+  React.useEffect(() => {
+    // Pre-trigger voice loading for modern mobile browsers
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.getVoices();
+    }
+
+    const unlock = () => {
+      if ('speechSynthesis' in window) {
+        const u = new SpeechSynthesisUtterance(' ');
+        u.volume = 0;
+        window.speechSynthesis.speak(u);
+      }
+      // Remove listeners once unlocked
+      window.removeEventListener('click', unlock);
+      window.removeEventListener('touchstart', unlock);
+    };
+
+    window.addEventListener('click', unlock);
+    window.addEventListener('touchstart', unlock);
+    return () => {
+      window.removeEventListener('click', unlock);
+      window.removeEventListener('touchstart', unlock);
+    };
+  }, []);
+
   const selectedRoomObj = ROOMS.find(r => r.id === reservation.roomId);
 
   const screenProps = {
