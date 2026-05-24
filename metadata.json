@@ -1,0 +1,6 @@
+{
+  "name": "CiudadelaApp",
+  "description": "Una ludoteca para aprender a comunicarnos jugando. Herramienta de reserva para padres.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
